@@ -801,7 +801,7 @@ class PADOBaseModel {
  * Load object matches the params.
  * If no matching object is found, return new object assigned params.
  * 
- * @params array  $params: An array for search or assign.
+ * @param  array  $params: An array for search or assign.
  * @return object $obj   : Single object matches the params or new object assigned params.
  */
     function get_by_key ( $params ) {
@@ -853,7 +853,7 @@ class PADOBaseModel {
 /**
  * Load object and get PDOStatement.
  * 
- * @params             : See load method.
+ * @param              : See load method.
  * @return object $sth : PDOStatement.
  */
     function load_iter ( $terms = [], $args = [], $cols = '', $extra ) {
@@ -984,7 +984,7 @@ class PADOBaseModel {
 /**
  * Get table scheme from JSON file and set to $pado->scheme[ $model ].
  * 
- * @params string $model : Name of model.
+ * @param string $model : Name of model.
  */
     function set_scheme_from_json ( $model ) {
         $json = PADODIR . 'models' . DS . $model . '.json';
@@ -1003,10 +1003,10 @@ class PADOBaseModel {
 /**
  * Get table scheme from database and set to $pado->scheme[ $model ].
  * 
- * @params string $model     : Name of model.
- * @params string $table     : Name of table.
- * @params string $colprefix : Column prefix.
- * @params bool   $needle    : If specified receive results(array).
+ * @param  string $model     : Name of model.
+ * @param  string $table     : Name of table.
+ * @param  string $colprefix : Column prefix.
+ * @param  bool   $needle    : If specified receive results(array).
  * @return array  $scheme    : If $needle specified.
  */
     function get_scheme ( $model, $table, $colprefix, $needle = false ) {
@@ -1019,9 +1019,9 @@ class PADOBaseModel {
 /**
  * Create new table from scheme.
  * 
- * @params string $model  : Name of model.
- * @params string $table  : Name of table.
- * @params array  $scheme : An array of column definition and index definition.
+ * @param string $model  : Name of model.
+ * @param string $table  : Name of table.
+ * @param array  $scheme : An array of column definition and index definition.
  */
     function create_table ( $model, $table, $colprefix, $scheme ) {
         $pado = $this->pado();
@@ -1042,7 +1042,7 @@ class PADOBaseModel {
 /**
  * Set column names and values from an array.
  * 
- * @params array $params : The hash for assign.
+ * @param array $params : The hash for assign.
  */
     function set_values ( $params = [] ) {
         $this->__new( $params );
@@ -1063,8 +1063,8 @@ class PADOBaseModel {
 /**
  * Upgrade database scheme.
  * 
- * @params string $table     : Name of table.
- * @params array  $upgrade   : Scheme information of update columns.
+ * @param  string $table     : Name of table.
+ * @param  array  $upgrade   : Scheme information of update columns.
  * @param  string $colprefix : Column name prefix.
  * @return bool   $success   : Returns true if it succeeds.
  */
@@ -1077,8 +1077,8 @@ class PADOBaseModel {
 /**
  * Whether there is a difference in array.
  * 
- * @params array $from  : The array to compare from.
- * @params array $to    : An array to compare against.
+ * @param  array $from  : The array to compare from.
+ * @param  array $to    : An array to compare against.
  * @return bool  $bool  : A difference in array.
  */
     function array_compare ( $from, $to ) {
@@ -1112,9 +1112,9 @@ class PADOBaseModel {
 /**
  * Compare the schema definition with the actual schema.
  * 
- * @params string $model : Name of model.
- * @params string $table : Name of table.
- * @params string $colprefix : Column prefix.
+ * @param  string $model : Name of model.
+ * @param  string $table : Name of table.
+ * @param  string $colprefix : Column prefix.
  * @return array  $diff  : Difference in array
  *                       (['column_defs' => $upgrade_cols, 'indexes' => $upgrade_idxs ]).
  */
@@ -1185,7 +1185,7 @@ class PADOBaseModel {
 /**
  * Validate keys and values.
  * 
- * @params array $values : An array for sanitize.
+ * @param  array $values : An array for sanitize.
  * @return array $values : Sanitized an array.
  */
     function validation ( $values, &$error = null ) {
